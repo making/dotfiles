@@ -1,16 +1,17 @@
 #!/bin/sh
 
-if [ ! -d $HOME/.emacs.d ];then
-    echo "Create $HOME/.emacs.d"
-    mkdir -p $HOME/.emacs.d
+
+ARCH=darwin-amd64
+#ARCH=linux-amd64
+#ARCH=linux-386
+#ARCH=linux-arm
+#ARCH=windows-amd64
+#ARCH=windows-386
+
+if [ ! -f gozouroppu ];then
+    wget http://dn-gobuild5.qbox.me/gorelease/making/gozouroppu/master/${ARCH}/gozouroppu.zip
+    unzip gozouroppu.zip
+    rm -f gozouroppu.zip
 fi
 
-if [ -f $HOME/.emacs.d/install.sh ];then
-    echo "Remove $HOME/.emacs.d/init.el"
-    rm -f $HOME/.emacs.d/init.el
-fi
-
-if [ ! -h $HOME/.emacs.d/init.el ];then
-    echo "Link $HOME/.emacs.d/init.el"
-    ln -s `pwd`/.emacs.d/init.el $HOME/.emacs.d
-fi
+./gozouroppu -d `pwd` -i
