@@ -1,4 +1,4 @@
-alias ll='ls -laG'
+alias ll='ls -laGh'
 alias gl='git log --oneline --decorate --graph'
  
 export JAVA_HOME=`/usr/libexec/java_home`
